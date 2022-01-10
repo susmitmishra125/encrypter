@@ -9,7 +9,13 @@ def decrypt():
 		df = pd.read_csv('pass.csv')
 		key = get_key()
 		a = Fernet(key)
-		row_num = input('enter the row number you want to decrypt: ')
+		row_num = input('enter the row number you want to decrypt: default(all rows)')
+		if row_num == '':
+			for i in range(len(df)):
+				encrypted_msg = df.iloc[i]['password']
+				decrypted_msg = a.decrypt(encrypted_msg.encode("utf-8"))
+				print(df.loc[i,'username'],decrypted_msg.decode("utf-8"))
+			return
 		encrypted_msg = df.loc[int(row_num),'password']
 		decrypted_msg = a.decrypt(encrypted_msg.encode("utf-8"))
 		# print username and decrypted message

@@ -32,8 +32,8 @@ def encrypt():
 
 	encrypted_msg= a.encrypt(text)
 	print(encrypted_msg)
-	flag =  input('should i append this key to the file? (y/n)')
-	if flag == 'y':
+	flag =  input('should i append this key to the file? (y/n) default (y)')
+	if flag != 'n':
 		# check if pass.csv exists else create
 		if not os.path.exists('pass.csv'):
 			df = pd.DataFrame(columns=['date','time','domain','username','password'])
