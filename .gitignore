@@ -1,4 +1,4 @@
-.gitignore
-*.txt
+.git
+.vscode
+key.txt
 *.csv
-.*
