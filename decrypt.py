@@ -9,7 +9,9 @@ def decrypt():
 		df = pd.read_csv('pass.csv')
 		key = get_key()
 		a = Fernet(key)
+		print(len(df), 'credenditals found')
 		row_num = input('enter the row number you want to decrypt: default(all rows)')
+		row_num+=1
 		if row_num == '':
 			for i in range(len(df)):
 				encrypted_msg = df.iloc[i]['password']
